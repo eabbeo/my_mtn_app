@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_mtn_app/components/carousel/banner_carousel.dart';
 import 'package:my_mtn_app/components/custom_app_bar.dart';
 import 'package:my_mtn_app/utils/colors.dart';
 import 'package:my_mtn_app/utils/constant.dart';
@@ -100,8 +101,178 @@ class _MyAppState extends State<MyApp> {
                 "Pulse Offers & Loyalty",
                 style: theme().textTheme.displayLarge,
               ),
+              constMiniHeight,
+              const BannerCarousel(),
+              constHeight,
+              Text(
+                "Recently Bought",
+                style: theme().textTheme.displayLarge,
+              ),
+              constMiniHeight,
+              recentlyBought(),
+              constHeight,
+              Text(
+                "Recent Transaction",
+                style: theme().textTheme.displayLarge,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Gives 1 month transaction history",
+                    style: theme().textTheme.bodyMedium,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Icon(
+                    FontAwesomeIcons.rotate,
+                    color: blackColor,
+                    size: 16,
+                  )
+                ],
+              ),
+              constMiniHeight,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 150,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.grey.withOpacity(0.2)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                          child: Text(
+                        "10th January 2024",
+                        style: theme().textTheme.bodySmall,
+                      )),
+                    ),
+                  ),
+                ],
+              ),
+              constMiniHeight,
+              recentTransactions("8:00am", "Airtime Sent", "To: 0505214878",
+                  "GHS 20.00", "Others . Telecel"),
+              constMiniHeight,
+              recentTransactions("8:00am", "Airtime Sent", "To: 0505214878",
+                  "GHS 20.00", "Others . Telecel"),
+              constMiniHeight,
+              recentTransactions("8:00am", "Airtime Sent", "To: 0505214878",
+                  "GHS 20.00", "Others . Telecel"),
+              constHeight,
+              Text(
+                "Pulse Offers & Loyalty",
+                style: theme().textTheme.displayLarge,
+              ),
+              constMiniHeight,
+              const BannerCarousel()
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Container recentTransactions(String timeBought, String creditType,
+      String amount, String rnumber, String telco) {
+    return Container(
+      width: 343,
+      // height: 101,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            width: 1.4,
+            color: containerBorderColor,
+          )),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      timeBought,
+                      style: theme().textTheme.labelSmall,
+                    ),
+                    constExSmall,
+                    Text(creditType, style: theme().textTheme.displayMedium),
+                    constExSmall,
+                    Text(
+                      amount,
+                      style: theme().textTheme.bodyMedium,
+                    ),
+                  ],
+                ),
+                Center(
+                  child: Text(rnumber, style: theme().textTheme.bodySmall),
+                ),
+              ],
+            ),
+            constMiniHeight,
+            const Divider(),
+            constMiniHeight,
+            Text(
+              telco,
+              style: theme().textTheme.bodyMedium,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container recentlyBought() {
+    return Container(
+      width: 343,
+      // height: 101,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            width: 1.4,
+            color: containerBorderColor,
+          )),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Data Bundle",
+                  style: theme().textTheme.bodyMedium,
+                ),
+                constExSmall,
+                Text("365.25MB @ GHS 3.00",
+                    style: theme().textTheme.displayMedium),
+                constExSmall,
+                Text(
+                  "Non-expiry",
+                  style: theme().textTheme.bodyMedium,
+                ),
+              ],
+            ),
+            Container(
+              height: 36,
+              width: 97,
+              decoration: BoxDecoration(
+                  color: yellowColor, borderRadius: BorderRadius.circular(8)),
+              child: Center(
+                child:
+                    Text("Buy Again", style: theme().textTheme.displayMedium),
+              ),
+            ),
+          ],
         ),
       ),
     );

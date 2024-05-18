@@ -11,3 +11,7 @@ SizedBox constMiniHeight = const SizedBox(
 SizedBox constSmallHeight = const SizedBox(
   height: 12,
 );
+
+SizedBox constExSmall = const SizedBox(
+  height: 8,
+);

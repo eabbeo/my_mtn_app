@@ -19,7 +19,9 @@ ThemeData theme() {
       bodyMedium: TextStyle(
           color: greyColor, fontWeight: FontWeight.normal, fontSize: 14),
       bodySmall: TextStyle(
-          color: greyColor, fontWeight: FontWeight.normal, fontSize: 14),
+          color: blackColor, fontWeight: FontWeight.bold, fontSize: 12),
+      labelSmall: TextStyle(
+          color: blackColor, fontWeight: FontWeight.normal, fontSize: 12),
     ),
   );
 }
