@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_mtn_app/bottom_nav_page.dart';
 import 'package:my_mtn_app/components/carousel/banner_carousel.dart';
+import 'package:my_mtn_app/components/carousel/more_carousel.dart';
 import 'package:my_mtn_app/components/custom_app_bar.dart';
 import 'package:my_mtn_app/utils/colors.dart';
 import 'package:my_mtn_app/utils/constant.dart';
@@ -9,7 +12,7 @@ import 'package:my_mtn_app/utils/theme.dart';
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: MyApp(),
+    home: BootomNav(),
   ));
 }
 
@@ -157,17 +160,46 @@ class _MyAppState extends State<MyApp> {
                   "GHS 20.00", "Others . Telecel"),
               constMiniHeight,
               recentTransactions("8:00am", "Airtime Sent", "To: 0505214878",
-                  "GHS 20.00", "Others . Telecel"),
+                  "GHS 10.00", "MTN"),
               constMiniHeight,
               recentTransactions("8:00am", "Airtime Sent", "To: 0505214878",
-                  "GHS 20.00", "Others . Telecel"),
+                  "GHS 20.00", "MTN"),
+              constHeight,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 210,
+                    //  height: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: containerBorderColor)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "See all transactions",
+                            style: theme().textTheme.bodyLarge,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          SvgPicture.asset(
+                              "assets/bottom_nav_images/arrow-right.svg")
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               constHeight,
               Text(
-                "Pulse Offers & Loyalty",
+                "More Offers",
                 style: theme().textTheme.displayLarge,
               ),
               constMiniHeight,
-              const BannerCarousel()
+              const MoreCarousel()
             ],
           ),
         ),
@@ -216,9 +248,9 @@ class _MyAppState extends State<MyApp> {
                 ),
               ],
             ),
-            constMiniHeight,
+            constExSmall,
             const Divider(),
-            constMiniHeight,
+            constExSmall,
             Text(
               telco,
               style: theme().textTheme.bodyMedium,
