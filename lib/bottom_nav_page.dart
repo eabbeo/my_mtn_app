@@ -62,6 +62,7 @@ class _BootomNavState extends State<BootomNav> {
           onTap: _onTapped,
           selectedItemColor: blackColor,
           unselectedItemColor: blackColor,
+          showUnselectedLabels: true,
         ),
       ),
     );
